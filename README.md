@@ -1,6 +1,7 @@
 <div>
   <img src="https://user-images.githubusercontent.com/69850751/175876062-f252cc1b-bd44-46b3-9ddb-a7692b2eede4.png"     alt="">
 </div>
+
 ## Description :house:
 Airbnb clone is a complete web application, integrating database storage, 
 a back-end API, and front-end interfacing in a clone of AirBnB.
@@ -9,10 +10,15 @@ The project currently only implements the back-end console.
 AirBnB utilizes the following classes:
 |     | BaseModel | FileStorage | User | State | City | Amenity | Place | Review |
 | --- | --------- | ----------- | -----| ----- | -----| ------- | ----- | ------ |
+
 | **PUBLIC INSTANCE ATTRIBUTES** | `id`<br>`created_at`<br>`updated_at` | | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` |
+
 | **PUBLIC INSTANCE METHODS** | `save`<br>`to_dict` | `all`<br>`new`<br>`save`<br>`reload` | "" | "" | "" | "" | "" | "" |
-| **PUBLIC CLASS ATTRIBUTES** | | | `email`<br>`password`<br>`first_name`<br>`last_name`| `name` | `state_id`<br>`name` | `name` | `city_id`<br>`user_id`<br>`name`<br>`description`<br>`number_rooms`<br>`number_bathrooms`<br>`max_guest`<br>`price_by_night`<br>`latitude`<br>`longitude`<br>`amenity_ids` | `place_id`<br>`user_id`<br>`text` | 
+
+| **PUBLIC CLASS ATTRIBUTES** | | | `email`<br>`password`<br>`first_name`<br>`last_name`| `name` | `state_id`<br>`name` | `name` | `city_id`<br>`user_id`<br>`name`<br>`description`<br>`number_rooms`<br>`number_bathrooms`<br>`max_guest`<br>`price_by_night`<br>`latitude`<br>`longitude`<br>`amenity_ids` | `place_id`<br>`user_id`<br>`text` |
+ 
 | **PRIVATE CLASS ATTRIBUTES** | | `file_path`<br>`objects` | | | | | | |
+
 ## Storage :baggage_claim:
 The above classes are handled by the abstracted storage engine defined in the 
 [FileStorage](./models/engine/file_storage.py) class.
@@ -21,10 +27,12 @@ Every time the backend is initialized, AirBnB instantiates an instance of
 any class instances stored in the JSON file `file.json`. As class instances are 
 created, updated, or deleted, the `storage` object is used to register 
 corresponding changes in the `file.json`.
+
 ## Console :computer:
 The console is a command line interpreter that permits management of the backend 
 of AirBnB. It can be used to handle and manipulate all classes utilized by 
 the application (achieved by calls on the `storage` object defined above).
+
 ### Using the Console
 The AirBnB console can be run both interactively and non-interactively. 
 To run the console in non-interactive mode, pipe any command(s) into an execution 
@@ -66,6 +74,7 @@ The AirBnB console supports the following commands:
   * Usage: `create <class>`
 Creates a new instance of a given class. The class' ID is printed and 
 the instance is saved to the file `file.json`.
+
 * **show**
   * Usage: `show <class> <id>` or `<class>.show(<id>)`
 Prints the string representation of a class instance based on a given id.
