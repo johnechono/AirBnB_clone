@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' create base model '''
+''' it creates the base model '''
 from uuid import uuid4
 from datetime import datetime
 import models
@@ -8,8 +8,8 @@ import models
 class BaseModel:
     def __init__(self, *args, **kwargs):
         '''
-            create new base model instance
-            or recreate base model instance from dictionary
+            it creates new base model instance
+            or recreates base model instance from dictionary
         '''
         if kwargs == {}:
             self.id = str(uuid4())
@@ -24,17 +24,17 @@ class BaseModel:
                 self.__dict__[key] = value
 
     def __str__(self):
-        ''' defines custom string representation of object '''
+        ''' it defines custom string representation of object '''
         return f'[{self.__class__.__name__}] ({self.id}) {self.__dict__}'
 
     def save(self):
-        ''' updates the updated_at attribute when called '''
+        ''' it updates the updated_at attribute when called '''
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         '''
-            creates custom dictionary from __dict__
+            it creates custom dictionary from __dict__
             (i.e dictionary of instance attributes)
         '''
         my_dict = self.__dict__.copy()

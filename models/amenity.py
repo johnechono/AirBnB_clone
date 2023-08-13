@@ -3,5 +3,5 @@ from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    ''' it defines Amenity class '''
+    ''' it defines the Amenity class '''
     name = ''
